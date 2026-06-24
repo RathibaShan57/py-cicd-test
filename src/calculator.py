@@ -25,3 +25,9 @@ def power(base: float, exp: int) -> float:
 
 def is_even(n: int) -> bool:
     return n % 2 == 0
+
+
+def modulo(a: float, b: float) -> float:
+    if b == 0:
+        raise ValueError("Cannot modulo by zero")
+    return a % b
