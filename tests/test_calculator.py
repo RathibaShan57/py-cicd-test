@@ -1,6 +1,6 @@
 """Tests for the calculator module."""
 import pytest
-from src.calculator import add, subtract, multiply, divide, power, is_even
+from src.calculator import add, subtract, multiply, divide, power, is_even, modulo
 
 
 class TestAdd:
@@ -68,3 +68,15 @@ class TestIsEven:
 
     def test_zero(self):
         assert is_even(0) is True
+
+
+class TestModulo:
+    def test_basic(self):
+        assert modulo(10, 3) == pytest.approx(1.0)
+
+    def test_even_division(self):
+        assert modulo(9, 3) == pytest.approx(0.0)
+
+    def test_modulo_by_zero(self):
+        with pytest.raises(ValueError, match="Cannot modulo by zero"):
+            modulo(5, 0)
